@@ -23,3 +23,24 @@ class Location(models.Model):
 
     def __str__(self):
         return self.photo_location
+
+
+class Category(models.Model):
+    photo_category =models.charField(max_length= 30)
+
+
+    def save_category(self):
+        self.save()
+    
+    
+    def delete_category(self):
+        self.delete()
+    
+    def update_category(self ,update):
+        self.photo_category = update
+        self.save()
+
+    def get_category_id(cls ,id):
+        return self.photo_category
+
+    
