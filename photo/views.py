@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . models import Image,Location,Category
-
+from django.http import HttpResponse,Http404
+import datetime as datetime
 # Create your views here.
 def fashion(request):
     images = Image.objects.all()
