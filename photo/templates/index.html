@@ -7,7 +7,7 @@
                 <div id="front" class="zoom">
                   <div class="overlay">
     <div class="col-md-4 col-md-4 col-md-4">
-      <!-- <h1 class="">{{photo_item}}</h1> -->
+      
       <div class="well">
       <img src="{{photo_item.image.url}}" style="width: 100%" class="image" data-toggle="modal" data-target="#exampleModal{{photo_item.id}}"class="img-responsive" alt="Image" style="max-width:200px;">
       </div>
@@ -25,7 +25,7 @@ aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLongTitle">{{photo_item.name }}</h5>
+      <h5 class="modal-title" id="exampleModalLongTitle" style="margin-right:90px">{{photo_item.name }}</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
      </div>
@@ -38,8 +38,9 @@ aria-hidden="true">
     </div>
     <div class="modal-footer">
       <input class="form-control" type="text" value="http://127.0.0.1:8000{{photo_item.image.url}}" id="thislinkhere-{{photo_item.id}}">
-      <!-- <a onclick="copyLink({{photo_item.id}})"><button type="button" class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy
-          image Link</button></a> -->
+      <a onclick="copyLink({photo_item,id})">
+        <button type="button" class="btn btn-outline-secondary my-3 my-sm-0 link-btn">Copy
+          image Link</button></a>
 
     </div>
     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
