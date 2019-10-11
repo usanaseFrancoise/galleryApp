@@ -6,7 +6,13 @@ import datetime as datetime
 def index(request):
     images = Image.objects.all()
     return render(request, 'index.html',{'images':images})
-
+def filter_by_location(request,location_id):
+   """
+   Function that filters images by location
+   """
+   images = Image.filter_by_location(id=location_id )
+   return render (request, 'location.html', {"images":images})
+   
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
@@ -25,12 +31,7 @@ def image(request,image_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"allPhoto/image.html", {"image":image})
-def filter_by_location(request,location_id):
-   """
-   Function that filters images by location
-   """
-   images = Image.filter_by_location(id=location_id )
-   return render (request, 'location.html', {"images":images})
+
 
 def filter_by_category(request,category_id):
    """
