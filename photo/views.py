@@ -12,7 +12,7 @@ def filter_by_location(request,location_id):
    """
    images = Image.filter_by_location(id=location_id )
    return render (request, 'location.html', {"images":images})
-   
+
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
@@ -25,14 +25,6 @@ def search_results(request):
         message ="try again"
         return render(request,'allPhoto/search.html',{"message":message})
 
-def image(request,image_id):
-    try:
-        image = Image.objects.get(id = image_id)
-    except DoesNotExist:
-        raise Http404()
-    return render(request,"allPhoto/image.html", {"image":image})
-
-
 def filter_by_category(request,category_id):
    """
    Function that filters images by location
@@ -40,3 +32,9 @@ def filter_by_category(request,category_id):
    images = Image.filter_by_category(id=category_id )
    print(images)
    return render (request, 'category.html', {"images":images})
+def image(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"allPhoto/image.html", {"image":image})
