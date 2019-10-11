@@ -3,9 +3,9 @@ from . models import Image,Location,Category
 from django.http import HttpResponse,Http404
 import datetime as datetime
 # Create your views here.
-def fashion(request):
+def index(request):
     images = Image.objects.all()
-    return render(request,'fashion.html',{'images':images})
+    return render(request, 'index.html',{'images':images})
 
 def search_results(request):
 
@@ -13,24 +13,29 @@ def search_results(request):
         search_term = request.GET.get("image")
         searched_photos= Image.search_by_category(search_term)
         message= f"{search_term}"
-        return render(request, 'all-photo/search.html',{"message":message,"photos":searched_photos})
+        return render(request, 'allPhoto/search.html',{"message":message,"photos":searched_photos})
 
     else:
         message ="try again"
-        return render(request,'all-photo/search.html',{"message":message})
+        return render(request,'allPhoto/search.html',{"message":message})
 
 def image(request,image_id):
     try:
-
-        images = Image.objects.get(id =image_id)
-
+        image = Image.objects.get(id = image_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"all-photo/image.html",{"image":image})
-
+    return render(request,"allPhoto/image.html", {"image":image})
 def filter_by_location(request,location_id):
-    '''
-    filter the image location_id
-    '''
-    images =Image.filter_by_location(location_id)
-    return render(request,'location.html', {"images":images})
+   """
+   Function that filters images by location
+   """
+   images = Image.filter_by_location(id=location_id )
+   return render (request, 'location.html', {"images":images})
+
+def filter_by_category(request,category_id):
+   """
+   Function that filters images by location
+   """
+   images = Image.filter_by_category(id=category_id )
+   print(images)
+   return render (request, 'category.html', {"images":images})

@@ -1,9 +1,10 @@
 from django.contrib import admin
+from django.contrib import admin
 from .models import Location,Image,Category
 # Register your models here.
 
 
 
-admin.site.Register(Location)
-admin.site.Register(Image)
-admin.site.Register(Category)
+admin.site.register(Location)
+admin.site.register(Image)
+admin.site.register(Category)

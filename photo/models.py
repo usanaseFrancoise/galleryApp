@@ -4,7 +4,8 @@ import  datetime as dt
 
 
 class Location(models.Model):
-    photo_location = models.charField(max_length =30)
+    
+    photo_location = models.CharField(max_length =30)
 
     def save_location(self):
         self.save()
@@ -23,10 +24,10 @@ class Location(models.Model):
 
     def __str__(self):
         return self.photo_location
-
-
+    
+    
 class Category(models.Model):
-    photo_category =models.charField(max_length= 30)
+    photo_category = models.CharField(max_length =30)
 
 
     def save_category(self):
@@ -42,15 +43,19 @@ class Category(models.Model):
 
     def get_category_id(cls ,id):
         return self.photo_category
+    def __str__(self):
+        return self.photo_category
+
 
     
 class Image(models.Model):
-    title =models.charField(max_length= 30)
-    description =models.TextField(max_length =30)
-    image= models.ImageField(upload_to ='photos/',default='Choose image')
-    location =models.ForeignKey(Location)
-    category =models.ForeignKey(Category)
-    pub_date =models.DateTimeField(auto_now_add=True,null=True)
+    title = models.CharField(max_length =30)
+    
+    description = models.TextField(max_length =30)
+    image = models.ImageField(upload_to = 'photos/', default='No image')
+    location = models.ForeignKey(Location)
+    category = models.ForeignKey(Category)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True) 
 
 
     class Meta:
@@ -59,29 +64,33 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
-        def delete_image(self):
-            self.delete()
+    def delete_image(self):
+        self.delete()
 
-            def __str__(self):
-                return self.title
+    def __str__(self):
+        return self.title
 
-            @classmethod
-            def get_all_images(cls):
-                all_images =Images.objects.all()
-                return all_images
-            @classmethod
-            def get_all_image_by_id(cls, id):
-                an_image =Image.objects.get(id=id)
-                return an_image
+    @classmethod
+    def get_all_images(cls):
+        all_images =Images.objects.all()
+        return all_images
+    @classmethod
+    def get_all_image_by_id(cls, id):
+        an_image =Image.objects.get(id=id)
+        return an_image
 
-            @classmethod
-            def search_by_category(cls,search_term):
-                photo =cls.objects.filter(category__photo_category__icontains=search_term)
-                return photo_category
+    @classmethod
+    def search_by_category(cls,search_term):
+        photo =cls.objects.filter(category__photo_category__icontains=search_term)
+        return photo
 
-            @classmethod
-            def filter_by_location(cls, id):
-                images =Image.objects.filter(location_id=id)
-                return images
-            
+    @classmethod
+    def filter_by_location(cls, id):
+        images =Image.objects.filter(location_id=id)
+        return images
+    
+    @classmethod
+    def filter_by_category(cls, id):
 
+        images =Image.objects.filter(category_id=id)
+        return images
