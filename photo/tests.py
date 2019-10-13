@@ -12,4 +12,11 @@ class LocationTestCase(TestCase):
         location.update_location('Canada')
         location=Location.get_location_id(self.Kigali.id)
         self.assertTrue(location.photo_location == 'Canada')
-        
+
+    
+    def test_delete_location(self):
+        self.Kigali.save_location()
+        loco=Location.objects.all()
+        self.assertTrue(len(loco)>=1)
+
+
