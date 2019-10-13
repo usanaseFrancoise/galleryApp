@@ -1,11 +1,12 @@
 <nav class="navbar navbar-inverse" style="background-color:rgb(129, 147, 199)">
     <div class="container-fluid" id="container1">
         <h2 class="animated zoomIn" style="color:rgb(234, 238, 250);" style="font-size: 200px;">Gallery App</h2>
-        
-  
-      
+        <a href="/location/1" style="color:thistle"><button>Rwanda</button></a>
+        <a href="/location/2" style="color:thistle"><button>Canada</button></a>
+        <a href="/location/3" style="color:thistle"><button>Paris</button></a>
+
       <div class="col-sm-4 col-md-4 navbar-right">
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+        <form   class="navbar-form" role="search" action="{% url 'search_results' %}">
   
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search Image" name="image">

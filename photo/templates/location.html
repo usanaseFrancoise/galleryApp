@@ -3,14 +3,13 @@
 
 {% block content %}
 
-<h1>  GALLERY App</h1>
+<h1 style="text-align: center;color:thistle;font-weight:bold">  GALLERY App</h1>
 
-
+<div class="row">
 {% for photo_item in images %}
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-  
-     <p>{{photo.name}}</p>
-     <img src="{{photo_item.image.url}}" data-toggle="modal" class="img-responsive" alt="Image" style="max-width:200px;">
+    <p>{{photo.name}}</p>
+    <div class="col-sm-6 col-md-3">
+      <img src="{{photo_item.image.url}}" data-toggle="modal" class="img-responsive" alt="Image" style="max-width:200px;">
    </div>
  </div>
  {% empty %}
