@@ -66,3 +66,9 @@ class ImageTestCase(TestCase):
         img=self.image.filter_by_location(self.image.location_id)
         image=Image.objects.filter(location=self.image.location_id)
         self.assertTrue(img,image)
+
+    def test_filter_by_category_name(self):
+        self.image.save_image()
+      
+        images=Image.search_image('this')
+        self.assertTrue(len(images)>0)
