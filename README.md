@@ -17,9 +17,9 @@ as a user he/she will be able:
 - to see the discription of a photo while clicking on the image
 - will be able to search according to the category mentioned before
 - will be able to search according to the location :
-        - Rwanda
-        - Paris
-        - Canada
+- Rwanda
+- Paris
+- Canada
         
         
 ## Technology used
