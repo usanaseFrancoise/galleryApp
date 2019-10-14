@@ -59,3 +59,10 @@ class ImageTestCase(TestCase):
     def test_delete_method(self):
         self.image.save_image()
         self.image.delete_image()
+
+   
+    def test_filter_by_location(self):
+        self.image.save_image()
+        img=self.image.filter_by_location(self.image.location_id)
+        image=Image.objects.filter(location=self.image.location_id)
+        self.assertTrue(img,image)
