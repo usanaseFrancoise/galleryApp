@@ -6,9 +6,9 @@ Photo-Gallery
 
 This is a Gallery APP  IS Built in django application  the photos are being displayed for the view
 there are different categories of which i hve classified them in three parts:
-- Clothes
-- Shoes
-- Parfums
+### Clothes
+### Shoes
+### Parfums
 
 ## you can view the application site at :Heroku
 
