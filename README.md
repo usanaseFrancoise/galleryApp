@@ -22,7 +22,7 @@ as a user he/she will be able:
         - Canada
         
         
-## Technology used:
+## Technology used
 - /Virtual
 - Django
 - Postgress
