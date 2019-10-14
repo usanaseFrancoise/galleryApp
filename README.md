@@ -28,5 +28,6 @@ as a user he/she will be able:
 - Postgress
 
 - running server http://127.0.0.1:8000/
+- Heroku Gallerapp https://gallerapp.herokuapp.com/
 
 ### License copyright (c) 2019 usanaseFrancoise
